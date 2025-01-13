@@ -9,8 +9,8 @@ const textField = document.getElementById('textField')
 
 const apiLink = 'https://api.artic.edu/api/v1/artworks?limit=50'
 
-function getImage(imgId){
-    const imageApi=`https://www.artic.edu/iiif/2/${imgId}/full/843,/0/default.jpg`
+function getImage(imgId) {
+    const imageApi = `https://www.artic.edu/iiif/2/${imgId}/full/843,/0/default.jpg`
     return imageApi
 }
 
@@ -59,7 +59,7 @@ async function start() {
     }
 
     // Function to update the UI
-    function updateUI() {
+    async function updateUI() {
         pic.src = getImage(data[counter].image_id);
         textField.innerHTML = data[counter].description;
     }
@@ -90,6 +90,14 @@ async function start() {
 
 start()
 
+async function testing() {
+    const randomValue = Date.now();
+
+    document.body.style.backgroundImage = `url(https://picsum.photos/2560/1440?random=${randomValue})`;
+}
+getRand.addEventListener('click', testing)
+
 async function getArt() {
 
 }
+

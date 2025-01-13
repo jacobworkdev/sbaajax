@@ -1,30 +1,40 @@
-body{
+#main{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+}
+
+#titleField >h1 {
+    flex-grow: 1;
+    text-align: center
 }
 
 #titleField{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 #searchBar{
-
+align-self: center;
 }
 
-#picField{
+#picField{  
     display: flex;
+    width: 90%;
 
 }
 #pic{
     width: 40%;
+    height: 40%;
 }
 
 #textField{
     margin: 5px;
-    font-size: 50px;
-    background-color: pink;
-    width: 80%;
+    font-size: 30px;
+    background-color: rgba(0, 0, 0, 0.156);
+    
 }
 
 #buttons{
