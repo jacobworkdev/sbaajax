@@ -96,30 +96,29 @@ async function start() {
 
     search.addEventListener('keyup', async (e) => {
         if (e.code === 'Enter' && search.value.trim() !== '') {
+            searchResults.innerHTML=''
             const req = await searchArt(search.value)
             
-            console.log('index.js 101', req)
-            document.body.innerHTML=''
-            let newDiv=document.createElement('div')
-            newDiv.id='searchResults'
-            document.body.appendChild(newDiv)
+            
+            
+            
+            
+            document.body.appendChild(searchResults)
             for (let i = 0; i < req.length - 1; i++) {
                 try {
                     const resultImg = document.createElement('img')
-                    // resultImg.src = getImage(getImageIdByApi(req[i].api_link))
-                    const url=await testing()
-                    resultImg.src = url
-                    // console.log(url)
+                    resultImg.src =  getImage( await getImageIdByApi(req[i].api_link))
+                    console.log(req[i].api_link)
 
                     const resultTxt = document.createElement('p')
-                    console.log(req)
-                    resultTxt.innerHTML = getDesc(req[i].title)
+                    
+                    resultTxt.innerHTML = await getDescSearch(req[i].api_link)
 
                     //appending results
                     let resultDiv = document.createElement('div')
                     resultDiv.appendChild(resultImg)
                     resultDiv.append(resultTxt)
-                    newDiv.appendChild(resultDiv)
+                    searchResults.appendChild(resultDiv)
                 } catch (e) {
                     console.log(e)
                 }
@@ -127,6 +126,35 @@ async function start() {
             }
         }
     });
+}
+
+
+async function getDescSearch(api_link){
+
+    let req = await axios(api_link)
+    let data= req.data.data
+    let desc = data.description
+    if (desc == null) {
+        desc = 'There is no description available'
+
+    }
+    let artistTitle=data.artist_title||'unknown'
+    console.log('line 141',data)
+    let altdesc = `
+        <b>Artist display:</b> ${data.artist_display}<br>
+        <b>Artist Title:</b>${artistTitle}<br>
+        <b>Title:</b> ${data.title}<br>
+        <b>Dimensions:</b> ${data.dimensions}<br>
+        <b>Credits:</b> ${data.credit_line}<br>
+        <b>Place of origin:</b> ${data.place_of_origin}<br>
+        <br>
+        <b>Description:</b><br>${desc}
+
+        `
+
+        return altdesc
+
+
 }
 
 async function getImageIdByApi(apilink) {

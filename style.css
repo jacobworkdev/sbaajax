@@ -1,53 +1,104 @@
-#main{
+#main {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-#titleField >h1 {
+#titleField > h1 {
     flex-grow: 1;
-    text-align: center
+    text-align: center;
 }
 
-#titleField{
+#titleField {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-#searchBar{
-align-self: center;
+#searchBar {
+    align-self: center;
 }
 
-#picField{  
+#picField {
     display: flex;
-    width: 90%;
-
-}
-#pic{
-    width: 20%;
-    height: 20%;
+    width: 80%;
 }
 
-#textField{
-    margin: 5px;
-    font-size: 25px;
-    background-color: rgba(0, 0, 0, 0.156);
+#pic {
+    width: 30%;
     
 }
 
-#buttons{
+#textField {
+    margin: 5px;
+    font-size: 25px;
+    background-color: rgba(0, 0, 0, 0.156);
+    padding: 10px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
     margin: 10px;
 }
 
-#searchResults{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#buttons button {
+    padding: 10px 20px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-#searchResults img{
-width: 50%;
+#buttons button:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+#searchResults {
+    justify-self: center;
+    width: 80%;
+}
+#searchResults div {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+#searchResults div p {
+    margin: 5px;
+    font-size: 25px;
+    background-color: rgba(0, 0, 0, 0.156);
+    padding: 10px;
+    word-wrap: break-word;
+}
+
+#searchResults img {
+    width: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+#searchResults img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #pic {
+        width: 50%;
+        height: auto;
+    }
+
+    #searchResults img {
+        width: 80%;
+    }
+
+    #textField, #searchResults div p {
+        font-size: 18px;
+    }
 }
