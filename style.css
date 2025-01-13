@@ -1,0 +1,32 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#titleField{
+}
+
+#searchBar{
+
+}
+
+#picField{
+    display: flex;
+
+}
+#pic{
+    width: 40%;
+}
+
+#textField{
+    margin: 5px;
+    font-size: 50px;
+    background-color: pink;
+    width: 80%;
+}
+
+#buttons{
+    margin: 10px;
+}
