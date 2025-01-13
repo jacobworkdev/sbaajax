@@ -26,17 +26,28 @@ align-self: center;
 
 }
 #pic{
-    width: 40%;
-    height: 40%;
+    width: 20%;
+    height: 20%;
 }
 
 #textField{
     margin: 5px;
-    font-size: 30px;
+    font-size: 25px;
     background-color: rgba(0, 0, 0, 0.156);
     
 }
 
 #buttons{
     margin: 10px;
+}
+
+#searchResults{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#searchResults img{
+width: 50%;
 }
